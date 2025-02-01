@@ -1,6 +1,17 @@
 0.1.3
-Added UserTracks
-2 Columns
+
+- Added UserTracks
+- 2 Columns
+
+0.1.2
+
+- Added ArtistTable Component
+- Added kekw image
+
+
+0.1.1
+
 - Added GenreTable Component
 - Added Image
 - Cleared NextJS Boilerplate
+
