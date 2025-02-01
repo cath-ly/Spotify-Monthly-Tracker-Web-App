@@ -1,3 +1,8 @@
+0.1.3
+
+- Added UserTracks
+- 2 Columns
+
 0.1.2
 
 - Added ArtistTable Component
