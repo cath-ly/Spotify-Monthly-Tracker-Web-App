@@ -5,7 +5,7 @@ export default function ArtistTable() {
 
     const populateArtist = () => {
         for (let i=1; i<6; i++){
-            artistObj.push(<li><img src={kekw.src} alt="loadFailed"/>Artist Name: {i}</li>)
+            artistObj.push(<li><img src={kekw.src} alt={"Artist "+i}/>Artist Name: {i}</li>)
         }
     }
     populateArtist()
