@@ -11,7 +11,7 @@ export default function GenreTable() {
 
   return (
     <div>
-      <ul className='joe'>
+      <ul className='joe text-center max-w-40'> Top Genres Listened to This Month:
         {genreObj}
       </ul>
     </div>

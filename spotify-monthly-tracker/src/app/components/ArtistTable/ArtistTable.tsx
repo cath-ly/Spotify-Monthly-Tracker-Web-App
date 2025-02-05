@@ -5,16 +5,14 @@ export default function ArtistTable() {
 
     const populateArtist = () => {
         for (let i=1; i<6; i++){
-            artistObj.push(<li><img src={kekw.src} alt={"Artist "+i}/>Artist Name: {i}</li>)
+            artistObj.push(<li className="text-center"><img src={kekw.src} alt={"Artist "+i}/><p className="mt-6">Artist Name: {i}</p></li>)
         }
     }
     populateArtist()
 
     return (
-        <div>
-          <ul className='joe'>
-            {artistObj}
-          </ul>
-        </div>
+        <ul className="flex justify-around mt-12">
+          {artistObj}
+        </ul>
       )
 }

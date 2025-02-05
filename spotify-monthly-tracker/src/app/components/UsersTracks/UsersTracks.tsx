@@ -17,7 +17,7 @@ export default function UserTracks() {
     populatePicture()
     populateTracks()
     return (
-      <div className="flex"> 
+      <div className="flex gap-8"> 
         <ul className='joe'> 
           <div>Profile Pic </div>
           {TrackPic}
