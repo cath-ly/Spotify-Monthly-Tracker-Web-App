@@ -1,8 +1,10 @@
 import Image from "next/image";
-import dog from "./favicon.png"
+import dog from "./favicon.png";
 import GenreTable from "./components/GenreTable/GenreTable";
 import UserTracks from "./components/UsersTracks/UsersTracks"; 
 import ArtistTable from "./components/ArtistTable/ArtistTable";
+
+require('dotenv').config();
 
 //make img to react component
 
