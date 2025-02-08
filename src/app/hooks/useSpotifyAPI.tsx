@@ -1,3 +1,4 @@
+import 'server-only';
 import { getSpotifyAPIToken } from "../utils/getSpotifyAPIToken"
 
 export const useSpotifyAPIToken = () => {
