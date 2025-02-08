@@ -3,12 +3,14 @@ import dog from "./favicon.png";
 import GenreTable from "./components/GenreTable/GenreTable";
 import UserTracks from "./components/UsersTracks/UsersTracks"; 
 import ArtistTable from "./components/ArtistTable/ArtistTable";
+import { useSpotifyAPIToken } from "./hooks/useSpotifyAPI";
 
 require('dotenv').config();
 
 //make img to react component
 
 export default function Home() {
+  useSpotifyAPIToken();
   return (
     <div>
       <div className="flex justify-center">
