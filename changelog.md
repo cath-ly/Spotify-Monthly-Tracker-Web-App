@@ -1,3 +1,7 @@
+0.1.5
+- Implemented the Profile Picture component
+- Made the Profile Picture centered and circular
+
 0.1.4
 
 - Updated HTML Skeleton w/ TailwindCSS
