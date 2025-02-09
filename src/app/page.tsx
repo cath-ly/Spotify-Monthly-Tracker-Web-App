@@ -1,16 +1,16 @@
+'use-client'
+
 import Image from "next/image";
 import dog from "./favicon.png";
 import GenreTable from "./components/GenreTable/GenreTable";
 import UserTracks from "./components/UsersTracks/UsersTracks"; 
 import ArtistTable from "./components/ArtistTable/ArtistTable";
-import { useSpotifyAPIToken } from "./hooks/useSpotifyAPI";
+import { getSpotifyAPI } from "./utils/getSpotifyAPI";
 
 require('dotenv').config();
 
-//make img to react component
-
 export default function Home() {
-  useSpotifyAPIToken();
+  getSpotifyAPI();
   return (
     <div>
       <div className="flex justify-center">
