@@ -1,4 +1,3 @@
-import 'server-only';
 import axios from 'axios';
 
 export const getSpotifyAPIToken = async () => {
@@ -15,14 +14,13 @@ export const getSpotifyAPIToken = async () => {
         client_id: process.env.USER_ID as string,
         client_secret: process.env.USER_PW as string
     }).toString();
-    console.log(dataPostType);
     try {
         const resp = await axios.post(
             spotifyAPITokenURL,
             dataPostType,
             headers
         )
-        return resp
+        return resp.data
     } catch (err) {
         console.log(`Failed to get spotify token ${err}`)
     }
