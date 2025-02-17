@@ -20,7 +20,7 @@ export const getSpotifyAPIToken = async () => {
             dataPostType,
             headers
         )
-        return resp.data
+        return resp.data.access_token
     } catch (err) {
         console.log(`Failed to get spotify token ${err}`)
     }

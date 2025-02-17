@@ -6,13 +6,15 @@ import GenreTable from "./components/GenreTable/GenreTable";
 import UserTracks from "./components/UsersTracks/UsersTracks"; 
 import ArtistTable from "./components/ArtistTable/ArtistTable";
 import { getSpotifyAPI } from "./utils/getSpotifyAPI";
+import { getSpotifyAuth, SpotifyApiComponent } from "@/script";
 
 require('dotenv').config();
 
 export default function Home() {
-  getSpotifyAPI();
+
   return (
     <div>
+      <SpotifyApiComponent/>
       <div className="flex justify-center">
         <img className="max-w-48 max-h-48" src={dog.src} alt="loadFailed" />
       </div>
