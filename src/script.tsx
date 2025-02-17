@@ -2,9 +2,6 @@
 
 import { useEffect } from "react";
 
-const params = new URLSearchParams(window.location.search);
-const code = params.get("code");
-
 const getAccessToken = async (clientId: string, code: string): Promise<string> => {
     const verifier = localStorage.getItem("verifier");
 
@@ -22,10 +19,11 @@ const getAccessToken = async (clientId: string, code: string): Promise<string> =
     });
 
     const { access_token } = await result.json();
+    console.log("token", access_token)
     return access_token;
 }
 
-export const getSpotifyAuth = async () => {
+export const getSpotifyAuth = async (code: string | null) => {
 
     // TODO: move 26-62 into a separate portion
     const redirectToAuthCodeFlow = async (clientId: string) => {
@@ -79,9 +77,9 @@ export const getSpotifyAuth = async () => {
     //     // TODO: Update UI with profile data
     // }
     if (!code) {
-        redirectToAuthCodeFlow(process.env.USER_ID as string);
+        redirectToAuthCodeFlow("bbd6d5333456415ca8bad1bce919efad");
     } else {
-        const accessToken = await getAccessToken(process.env.USER_ID as string, code);
+        const accessToken = await getAccessToken("bbd6d5333456415ca8bad1bce919efad", code);
         const profile = await fetchProfile(accessToken);
         console.log(profile)
         // populateUI(profile);
@@ -89,8 +87,10 @@ export const getSpotifyAuth = async () => {
 }
 
 export const SpotifyApiComponent = () => {
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get("code");
     useEffect(() => {
-        getSpotifyAuth()
+        getSpotifyAuth(code)
     }, [])
     return <></>
 }
