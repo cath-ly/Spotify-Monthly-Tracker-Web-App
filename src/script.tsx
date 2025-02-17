@@ -1,9 +1,10 @@
 'use client'
 
-import { useEffect } from "react";
+import { createContext, useEffect, useState } from "react";
 
 const getAccessToken = async (clientId: string, code: string): Promise<string> => {
     const verifier = localStorage.getItem("verifier");
+    console.log("Verifier ",verifier)
 
     const params = new URLSearchParams();
     params.append("client_id", clientId);
@@ -73,24 +74,30 @@ export const getSpotifyAuth = async (code: string | null) => {
         return await result.json();
     }
     
-    // function populateUI(profile: any) {
-    //     // TODO: Update UI with profile data
-    // }
+    let profile = null;
     if (!code) {
         redirectToAuthCodeFlow("bbd6d5333456415ca8bad1bce919efad");
     } else {
         const accessToken = await getAccessToken("bbd6d5333456415ca8bad1bce919efad", code);
+        console.log(`ACCESS TOKEN ${accessToken}`);
         const profile = await fetchProfile(accessToken);
         console.log(profile)
-        // populateUI(profile);
     }
+    return profile;
 }
 
+export const ProfileContext = createContext({});
+
 export const SpotifyApiComponent = () => {
+    const [userInfo, setUserInfo] = useState<any>();
     const params = new URLSearchParams(window.location.search);
     const code = params.get("code");
+    if (code != null) {
+        return <ProfileContext.Provider value={userInfo}/>
+    }
     useEffect(() => {
-        getSpotifyAuth(code)
+        const profile = getSpotifyAuth(code)
+        setUserInfo(profile); 
     }, [])
-    return <></>
+    return <ProfileContext.Provider value={userInfo}/>
 }
