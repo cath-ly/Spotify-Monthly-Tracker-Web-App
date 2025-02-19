@@ -20,7 +20,6 @@ const getAccessToken = async (clientId: string, code: string): Promise<string> =
     });
 
     const { access_token } = await result.json();
-    console.log("token", access_token)
     return access_token;
 }
 
@@ -89,14 +88,18 @@ export const getSpotifyAuth = async (code: string | null) => {
 export const ProfileContext = createContext({});
 
 export const SpotifyApiComponent = () => {
+    let code: any = null;
     const [userInfo, setUserInfo] = useState<any>();
-    const params = new URLSearchParams(window.location.search);
-    const code = params.get("code");
-    if (code != null) {
-        return <ProfileContext.Provider value={userInfo}/>
+    if (typeof window !== 'undefined') {
+        const params = new URLSearchParams(window.location.search);
+        const code = params.get("code");
+        if (code != null) {
+            return <ProfileContext.Provider value={userInfo}/>
+        }
     }
     useEffect(() => {
         const profile = getSpotifyAuth(code)
+        console.log("promise:", profile)
         setUserInfo(profile); 
     }, [])
     return <ProfileContext.Provider value={userInfo}/>
