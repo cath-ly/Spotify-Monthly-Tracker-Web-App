@@ -88,19 +88,15 @@ export const getSpotifyAuth = async (code: string | null) => {
 export const ProfileContext = createContext({});
 
 export const SpotifyApiComponent = () => {
-    let code: any = null;
-    const [userInfo, setUserInfo] = useState<any>();
+    let code: null | string = null;
+    let profile: any;
     if (typeof window !== 'undefined') {
         const params = new URLSearchParams(window.location.search);
-        const code = params.get("code");
-        if (code != null) {
-            return <ProfileContext.Provider value={userInfo}/>
-        }
+        code = params.get("code");
     }
     useEffect(() => {
-        const profile = getSpotifyAuth(code)
-        console.log("promise:", profile)
-        setUserInfo(profile); 
+        profile = getSpotifyAuth(code)
+        console.log(profile);
     }, [])
-    return <ProfileContext.Provider value={userInfo}/>
+    return <ProfileContext.Provider value={profile}/>
 }
