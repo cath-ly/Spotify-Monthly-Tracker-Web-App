@@ -15,7 +15,6 @@ export default function GenreTable() {
   populateGenre()
 
   const profileCheck = useContext(ProfileContext);
-  console.log(profileCheck)
 
   return (
     <div>
