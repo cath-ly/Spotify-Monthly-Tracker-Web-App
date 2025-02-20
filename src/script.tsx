@@ -74,23 +74,26 @@ async function fetchProfile(token: string): Promise<any> {
 export const ProfileContext = createContext({});
 
 export const SpotifyApiComponent = () => {
-    const [userInfo, setUserInfo] = useState({});
     let code: string | null = null;
-    if (typeof window != null) {
+    if (typeof window !== 'undefined') {
         const params = new URLSearchParams(window.location.search);
-        const code = params.get("code");
+        code = params.get("code");
     }
+
     useEffect(() => {
         const getSpotifyAuth = async (code: string | null) => {
-            let profile = null;
+            const verifyProfile = sessionStorage.getItem("Spotify-Profile");
+            if (verifyProfile != null) {
+                console.log(JSON.parse(verifyProfile));
+                return
+            }
             if (!code) {
                 redirectToAuthCodeFlow("bbd6d5333456415ca8bad1bce919efad");
             } else {
                 const accessToken = await getAccessToken("bbd6d5333456415ca8bad1bce919efad", code);
-                console.log(`ACCESS TOKEN ${accessToken}`);
-                profile = await fetchProfile(accessToken);
-                console.log(profile)
-                setUserInfo(profile); 
+                const profile = await fetchProfile(accessToken);
+                sessionStorage.setItem("Spotify-Profile", JSON.stringify(profile));
+                console.log(profile);
             }
         }        
         getSpotifyAuth(code)
