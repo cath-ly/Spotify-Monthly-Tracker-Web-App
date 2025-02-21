@@ -1,4 +1,10 @@
-0.1.4
+0.2.0
+
+- Implemented Spotify API Call
+- Implemented Session Storage
+- Implemented Spotify Auth
+
+  0.1.4
 
 - Updated HTML Skeleton w/ TailwindCSS
 - Added more containers into React Components
