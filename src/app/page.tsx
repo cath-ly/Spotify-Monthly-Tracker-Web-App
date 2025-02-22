@@ -5,6 +5,7 @@ import dog from "./favicon.png";
 import GenreTable from "./components/GenreTable/GenreTable";
 import UserTracks from "./components/UsersTracks/UsersTracks"; 
 import ArtistTable from "./components/ArtistTable/ArtistTable";
+import ProfilePic from "./components/ProfilePic/ProfilePic";
 import { getSpotifyAPI } from "./utils/getSpotifyAPI";
 import { SpotifyApiComponent } from "@/script";
 
@@ -15,9 +16,7 @@ export default function Home() {
   return (
     <div>
       <SpotifyApiComponent/>
-      <div className="flex justify-center">
-        <img className="max-w-48 max-h-48" src={dog.src} alt="loadFailed" />
-      </div>
+        <ProfilePic />
       <div className="flex justify-around mt-12">
         <GenreTable />
         <UserTracks/>

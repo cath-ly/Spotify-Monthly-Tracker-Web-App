@@ -4,7 +4,11 @@
 - Implemented Session Storage
 - Implemented Spotify Auth
 
-  0.1.4
+0.1.5
+- Implemented the Profile Picture component
+- Made the Profile Picture centered and circular
+
+0.1.4
 
 - Updated HTML Skeleton w/ TailwindCSS
 - Added more containers into React Components
