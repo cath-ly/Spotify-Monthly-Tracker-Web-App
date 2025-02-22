@@ -1,3 +1,9 @@
+0.2.0
+
+- Implemented Spotify API Call
+- Implemented Session Storage
+- Implemented Spotify Auth
+
 0.1.5
 - Implemented the Profile Picture component
 - Made the Profile Picture centered and circular
