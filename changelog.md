@@ -1,3 +1,8 @@
+0.2.1
+- Updated Profile Pic component by implementing the API to get user's profile picture
+- Added scope for user's top artists, genres, and songs
+- Implemented loading animation as placeholder for Profile Picture
+
 0.2.0
 
 - Implemented Spotify API Call
