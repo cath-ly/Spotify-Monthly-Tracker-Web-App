@@ -2,19 +2,24 @@
 
 export default function UserTracks() {
     const topTracks = sessionStorage.getItem("Spotify-Tracks");
-    const TrackObj:any = []
     const TrackPic:any = []
 
     const populateObj = () => {
       if (topTracks === null){
         for (let i=1; i < 6; i++){
-          TrackPic.push(<li>Picture {i}</li>)
-          TrackPic.push(<li>Tracks {i}</li>)
+          TrackPic.push(<li id={"joe" + i}>Picture {i} Tracks {i}</li>)
         }
       } else {
         const topTrackObj = JSON.parse(topTracks);
         for (const topTrackAlbum of topTrackObj.items){
-          TrackPic.push(<li id={topTrackAlbum.uri}><img src={topTrackAlbum.album.images[2].url} alt={topTrackAlbum.album.name} /> {topTrackAlbum.name}</li>)
+          TrackPic.push(<li className="flex flex-row gap-8 mb-8" id={topTrackAlbum.uri}>
+            <img className="w-48 h-48" src={topTrackAlbum.album.images[1].url} alt={topTrackAlbum.album.name} />
+            <div className="flex flex-col justify-center w-100"> 
+              <p className="font-sans text-2xl">{topTrackAlbum.name}</p>
+              <p className="font-sans text-2xl">{topTrackAlbum.album.name}</p>
+              <p className="font-sans text-2xl">{topTrackAlbum.artists[0].name}</p>
+              </div>
+          </li>)
         }
       }
     } 
@@ -22,7 +27,7 @@ export default function UserTracks() {
     populateObj()
     return (
       <div className="flex gap-8"> 
-        <ul className='flex-col center'>
+        <ul className='flex-col'>
           {TrackPic}
         </ul>
       </div>
