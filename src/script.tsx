@@ -68,7 +68,7 @@ async function fetchProfile(token: string): Promise<any> {
         method: "GET", headers: { Authorization: `Bearer ${token}` }
     });
 
-    return await profileResult.json();
+    return profileResult.json();
 }
 
 async function fetchTopTracks(token: string): Promise<any> {
@@ -76,7 +76,7 @@ async function fetchTopTracks(token: string): Promise<any> {
         method: "GET", headers: { Authorization: `Bearer ${token}` }
     });
 
-    return await topTracksResult.json();
+    return topTracksResult.json();
 }
 
 export const ProfileContext = createContext({});
