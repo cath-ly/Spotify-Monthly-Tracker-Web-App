@@ -64,27 +64,34 @@ const generateCodeChallenge = async (codeVerifier: string) => {
 
 
 async function fetchProfile(token: string): Promise<any> {
-    const result = await fetch("https://api.spotify.com/v1/me", {
+    const profileResult = await fetch("https://api.spotify.com/v1/me", {
         method: "GET", headers: { Authorization: `Bearer ${token}` }
     });
 
-    return await result.json();
+    return await profileResult.json();
+}
+
+async function fetchTopTracks(token: string): Promise<any> {
+    const topTracksResult = await fetch("https://api.spotify.com/v1/me/top/tracks?limit=5&time_range=short_term&locale=en-US,en;q%3D0.9", {
+        method: "GET", headers: { Authorization: `Bearer ${token}` }
+    });
+
+    return await topTracksResult.json();
 }
 
 export const ProfileContext = createContext({});
 
 export const SpotifyApiComponent = () => {
-    let code: string | null = null;
-    if (typeof window !== 'undefined') {
-        const params = new URLSearchParams(window.location.search);
-        code = params.get("code");
-    }
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get("code");
 
     useEffect(() => {
         const getSpotifyAuth = async (code: string | null) => {
             const verifyProfile = sessionStorage.getItem("Spotify-Profile");
-            if (verifyProfile != null) {
+            const topTracks = sessionStorage.getItem("Spotify-Tracks");
+            if (verifyProfile != null && topTracks != null) {
                 console.log(JSON.parse(verifyProfile));
+                console.log(JSON.parse(topTracks));
                 return
             }
             if (!code) {
@@ -92,8 +99,11 @@ export const SpotifyApiComponent = () => {
             } else {
                 const accessToken = await getAccessToken("bbd6d5333456415ca8bad1bce919efad", code);
                 const profile = await fetchProfile(accessToken);
+                const topTracks = await fetchTopTracks(accessToken);
                 sessionStorage.setItem("Spotify-Profile", JSON.stringify(profile));
+                sessionStorage.setItem("Spotify-Tracks", JSON.stringify(topTracks));
                 console.log(profile);
+                console.log(topTracks);
             }
         }        
         getSpotifyAuth(code)
