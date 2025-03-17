@@ -88,9 +88,9 @@ export const SpotifyApiComponent = () => {
                 return
             }
             if (!code) {
-                redirectToAuthCodeFlow("bbd6d5333456415ca8bad1bce919efad");
+                redirectToAuthCodeFlow(process.env.NEXT_PUBLIC_USER_ID);
             } else {
-                const accessToken = await getAccessToken("bbd6d5333456415ca8bad1bce919efad", code);
+                const accessToken = await getAccessToken(process.env.NEXT_PUBLIC_USER_ID, code);
                 const profile = await fetchProfile(accessToken);
                 sessionStorage.setItem("Spotify-Profile", JSON.stringify(profile));
                 console.log(profile);
