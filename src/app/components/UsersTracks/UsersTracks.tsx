@@ -1,18 +1,20 @@
 'use client'
 
-export default function UserTracks() {
-    const topTracks = sessionStorage.getItem("Spotify-Tracks");
-    const TrackPic:any = []
+import { ReactElement } from "react";
+
+export default function UserTracks(): ReactElement {
+    const topTracks: string | null = sessionStorage.getItem("Spotify-Tracks");
+    const trackPic: ReactElement[] = []
 
     const populateObj = () => {
-      if (topTracks === null){
+      if (topTracks == null){
         for (let i=1; i < 6; i++){
-          TrackPic.push(<li id={"joe" + i}>Picture {i} Tracks {i}</li>)
+          trackPic.push(<li id={"Placeholder: " + i}>Picture {i} Tracks {i}</li>)
         }
       } else {
         const topTrackObj = JSON.parse(topTracks);
         for (const topTrackAlbum of topTrackObj.items){
-          TrackPic.push(<li className="flex flex-row gap-8 mb-8" id={topTrackAlbum.uri}>
+          trackPic.push(<li className="flex flex-row gap-8 mb-8" id={topTrackAlbum.uri}>
             <img className="w-48 h-48" src={topTrackAlbum.album.images[1].url} alt={topTrackAlbum.album.name} />
             <div className="flex flex-col justify-center w-100"> 
               <p className="font-sans text-2xl">{topTrackAlbum.name}</p>
@@ -28,7 +30,7 @@ export default function UserTracks() {
     return (
       <div className="flex gap-8"> 
         <ul className='flex-col'>
-          {TrackPic}
+          {trackPic}
         </ul>
       </div>
     )
