@@ -1,4 +1,4 @@
-0.2.2
+0.3.0
 
 - Updated User's Top Track component by implementing the API to get user's top songs data
 - Modified calls in Script.tsx that lacked specificity & removed redundant await calls
