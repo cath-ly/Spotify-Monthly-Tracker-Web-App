@@ -1,6 +1,7 @@
 'use client'
 
 import { createContext, useEffect, useState } from "react";
+import { profileURL, topTracksURL } from "./app/utils/fetchURL";
 
 const getAccessToken = async (clientId: string, code: string): Promise<string> => {
     const verifier = localStorage.getItem("verifier");
@@ -64,7 +65,7 @@ const generateCodeChallenge = async (codeVerifier: string) => {
 
 
 async function fetchProfile(token: string): Promise<any> {
-    const profileResult = await fetch("https://api.spotify.com/v1/me", {
+    const profileResult = await fetch(profileURL, {
         method: "GET", headers: { Authorization: `Bearer ${token}` }
     });
 
@@ -72,7 +73,7 @@ async function fetchProfile(token: string): Promise<any> {
 }
 
 async function fetchTopTracks(token: string): Promise<any> {
-    const topTracksResult = await fetch("https://api.spotify.com/v1/me/top/tracks?limit=5&time_range=short_term&locale=en-US,en;q%3D0.9", {
+    const topTracksResult = await fetch(topTracksURL, {
         method: "GET", headers: { Authorization: `Bearer ${token}` }
     });
 
@@ -90,8 +91,6 @@ export const SpotifyApiComponent = () => {
             const verifyProfile = sessionStorage.getItem("Spotify-Profile");
             const topTracks = sessionStorage.getItem("Spotify-Tracks");
             if (verifyProfile != null && topTracks != null) {
-                console.log(JSON.parse(verifyProfile));
-                console.log(JSON.parse(topTracks));
                 return
             }
             if (!code) {
@@ -102,8 +101,6 @@ export const SpotifyApiComponent = () => {
                 const topTracks = await fetchTopTracks(accessToken);
                 sessionStorage.setItem("Spotify-Profile", JSON.stringify(profile));
                 sessionStorage.setItem("Spotify-Tracks", JSON.stringify(topTracks));
-                console.log(profile);
-                console.log(topTracks);
             }
         }        
         getSpotifyAuth(code)
