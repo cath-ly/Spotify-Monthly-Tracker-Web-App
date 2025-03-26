@@ -90,10 +90,10 @@ export const SpotifyApiComponent = () => {
         return;
       }
       if (!code) {
-        redirectToAuthCodeFlow("bbd6d5333456415ca8bad1bce919efad");
+        redirectToAuthCodeFlow(process.env.NEXT_PUBLIC_USER_ID);
       } else {
         const accessToken = await getAccessToken(
-          "bbd6d5333456415ca8bad1bce919efad",
+          process.env.NEXT_PUBLIC_USER_ID,
           code
         );
         const data = await fetchProfile(accessToken);
