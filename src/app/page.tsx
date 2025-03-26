@@ -24,11 +24,11 @@ export default function Home() {
   useEffect(() => {
     const getSpotifyAuth = async (code: string | null) => {
       if (!code) {
-        redirectToAuthCodeFlow("bbd6d5333456415ca8bad1bce919efad");
+        redirectToAuthCodeFlow(process.env.NEXT_PUBLIC_USER_ID);
       } else {
         try {
           const accessToken = await getAccessToken(
-            "bbd6d5333456415ca8bad1bce919efad",
+            process.env.NEXT_PUBLIC_USER_ID,
             code
           );
           const data = await fetchProfile(accessToken);
@@ -37,7 +37,7 @@ export default function Home() {
           setProfile(picture);
         } catch (error) {
           console.error("Error fetching data:", error);
-          redirectToAuthCodeFlow("bbd6d5333456415ca8bad1bce919efad");
+          redirectToAuthCodeFlow(process.env.NEXT_PUBLIC_USER_ID);
         }
       }
     };
