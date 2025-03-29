@@ -1,14 +1,20 @@
-0.2.0
+0.3.2
+
+- Sorted out the util functions from Script.tsx in their respective folder
+- Modified path directory calls for each util call
+
+  0.2.0
 
 - Implemented Spotify API Call
 - Implemented Session Storage
 - Implemented Spotify Auth
 
-0.1.5
+  0.1.5
+
 - Implemented the Profile Picture component
 - Made the Profile Picture centered and circular
 
-0.1.4
+  0.1.4
 
 - Updated HTML Skeleton w/ TailwindCSS
 - Added more containers into React Components
