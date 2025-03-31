@@ -1,10 +1,14 @@
-0.3.0
+  0.3.2
+
+- Sorted out the util functions from Script.tsx in their respective folder
+- Modified path directory calls for each util call
+
+  0.3.0
 
 - Updated User's Top Track component by implementing the API to get user's top songs data
 - Modified calls in Script.tsx that lacked specificity & removed redundant await calls
 
   0.2.1
-
 - Updated Profile Pic component by implementing the API to get user's profile picture
 - Added scope for user's top artists, genres, and songs
 - Implemented loading animation as placeholder for Profile Picture
