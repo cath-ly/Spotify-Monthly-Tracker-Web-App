@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { redirectToAuthCodeFlow } from "./utils/redirectToAuthCodeFlow";
 import { getAccessToken } from "./utils/getAccessToken";
-import { fetchProfile } from "./utils/fetchSpotifyInfo";
+import { fetchProfile, fetchTopTracks } from "./utils/fetchSpotifyInfo";
 import GenreTable from "./components/GenreTable/GenreTable";
 import UserTracks from "./components/UsersTracks/UsersTracks";
 import ArtistTable from "./components/ArtistTable/ArtistTable";
@@ -11,6 +11,7 @@ import ProfilePic from "./components/ProfilePic/ProfilePic";
 
 export default function Home() {
   const [picture, setPicture] = useState(null);
+  const [tracks, setTracks] = useState(null);
   let code: string | null = null;
   if (typeof window !== "undefined") {
     const params = new URLSearchParams(window.location.search);
@@ -27,9 +28,10 @@ export default function Home() {
             process.env.NEXT_PUBLIC_USER_ID,
             code
           );
-          const data = await fetchProfile(accessToken);
-          console.log(data);
-          setPicture(data.images[0].url);
+          const profile = await fetchProfile(accessToken);
+          const topTracks = await fetchTopTracks(accessToken);
+          setPicture(profile.images[0].url);
+          setTracks(topTracks.items);
         } catch (error) {
           console.error("Error fetching data:", error);
           redirectToAuthCodeFlow(process.env.NEXT_PUBLIC_USER_ID);
@@ -43,7 +45,7 @@ export default function Home() {
       <ProfilePic pictureInfo={picture} />
       <div className="flex justify-around mt-12">
         <GenreTable />
-        <UserTracks />
+        <UserTracks topTracks={tracks} />
       </div>
       <ArtistTable />
     </div>
