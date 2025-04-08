@@ -4,10 +4,10 @@ import { ReactElement } from "react";
 
 export default function UserTracks(topTracks: any): ReactElement {
   const trackPic: ReactElement[] = [];
-  console.log(topTracks);
+  const topTrackObj = topTracks;
 
   const populateObj = () => {
-    if (topTracks == null) {
+    if (topTrackObj.topTracks == null) {
       for (let i = 1; i < 6; i++) {
         trackPic.push(
           <li id={"Placeholder: " + i}>
@@ -16,7 +16,6 @@ export default function UserTracks(topTracks: any): ReactElement {
         );
       }
     } else {
-      const topTrackObj = topTracks;
       for (const topTrackAlbum of topTrackObj.topTracks) {
         trackPic.push(
           <li className="flex flex-row gap-8 mb-8" id={topTrackAlbum.uri}>
