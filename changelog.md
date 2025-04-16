@@ -1,3 +1,7 @@
+  0.3.3
+- Removed GenreTable
+- Updated User's Top Artist's component by implementing API to get user's top artist data
+
   0.3.2
 
 - Sorted out the util functions from Script.tsx in their respective folder
