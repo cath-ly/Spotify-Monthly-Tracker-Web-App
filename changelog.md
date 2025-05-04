@@ -1,4 +1,4 @@
-  0.3.3
+  0.4
 - Removed GenreTable
 - Updated User's Top Artist's component by implementing API to get user's top artist data
 
