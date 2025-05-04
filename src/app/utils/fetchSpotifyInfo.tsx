@@ -1,4 +1,4 @@
-import { profileURL, topTracksURL } from "./fetchURL";
+import { profileURL, topTracksURL, topArtistsURL } from "./fetchURL";
 
 export async function fetchProfile(token: string): Promise<any> {
   const result = await fetch(profileURL, {
@@ -16,4 +16,13 @@ export async function fetchTopTracks(token: string): Promise<any> {
   });
 
   return topTracksResult.json();
+}
+
+export async function fetchTopArtists(token: string): Promise<any> {
+  const topArtistsResult = await fetch(topArtistsURL, {
+  method: "GET",
+  headers: { Authorization: `Bearer ${token}` },
+  });
+  
+  return topArtistsResult.json();
 }
