@@ -3,6 +3,12 @@
 - Sorted out the util functions from Script.tsx in their respective folder
 - Modified path directory calls for each util call
 
+  0.3.1
+
+- Fixed configs for:
+  - Prettier
+  - ESLint
+
   0.3.0
 
 - Updated User's Top Track component by implementing the API to get user's top songs data
