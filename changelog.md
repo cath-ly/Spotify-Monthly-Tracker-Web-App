@@ -1,3 +1,7 @@
+  0.4.0
+- Removed GenreTable
+- Updated User's Top Artist's component by implementing API to get user's top artist data
+
   0.3.2
 
 - Sorted out the util functions from Script.tsx in their respective folder
@@ -8,6 +12,11 @@
 - Fixed configs for:
   - Prettier
   - ESLint
+
+  0.3.0
+
+- Updated User's Top Track component by implementing the API to get user's top songs data
+- Modified calls in Script.tsx that lacked specificity & removed redundant await calls
 
   0.2.1
 - Updated Profile Pic component by implementing the API to get user's profile picture
