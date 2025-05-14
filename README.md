@@ -23,7 +23,7 @@ This project was made by Nakra Ath-Ly, Nick Wu, Chantakrak Ath-Ly, and Sarey Che
 What Frameworks did we use? How did we do each step, make a TLDR and briefly explain our steps. Talk about tools we used as well to help explain their importance.
 
 
-##Project Process
+## Project Process
 How did we evaluate our process? What was our methodology? Provide who's responsible for revisions/changes/etc. (Tasks) 
 
 ## Project Screenshots
