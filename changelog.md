@@ -1,3 +1,6 @@
+  0.4.1
+- Updated ReadMe.md
+
   0.4.0
 - Removed GenreTable
 - Updated User's Top Artist's component by implementing API to get user's top artist data
