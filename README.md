@@ -10,7 +10,8 @@ In this project, we utilized Next.js, TailwindCSS, and Typescript to create the 
 We utilized JIRA to organize our project and evaluate our progress. Using the SCRUM methodology, we assigned one person a task and required a minimum of two other people to review for any changes necessary through a pull request. We would add every minute task as a JIRA task to proceed systematically and to ensure unanimous understanding before moving on to the next step.
 
 ## Project Screenshots
-![alt text](webpage.png)
+![alt text](/Images/webpage.png)
+![alt text](/Images/Spotify_Profile1.png)
 
 ## Challenges
 Biggest challenge I experienced in this project was integrating Typescript, Next, and React together. In this projected I wanted to write functions that were reusable and easy to factor but with TypeScript and the guidelines of React's Hook/State Rules, this became tedious pretty quickly and required guidance and constant brainstorming. Example is when the User would log in, we would need to use an async function to ensure that the data we grabbed from the user loaded first prior to the functions that would display their top categories. Initially we started with a LocalStorage method but then the issues of Tree Hydrations appeared and we would then have to brainstorm for better alternatives. These challenges help enforce my ability to rapidly research and understand modern frameworks more effectively. - Chantakrak Ath-Ly 
