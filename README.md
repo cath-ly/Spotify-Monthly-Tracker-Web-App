@@ -16,7 +16,7 @@ When user is opening the page, the page will redirect them to Spotify's OAuth pa
 This is how our main page looks once users connect their account through Spotify's OAuth
 ![Nick's Webpage](/Images/webpage.png)
 ![Nakra's Webpage](/Images/Spotify_Profile1.png)
-![Chantakrak's Webpage](/Images/Spotify-Snapshot-Chantakrak.png)
+![Chantakrak's Webpage](/Images/Spotify-Snapshot-Chantakrak.PNG)
 
 ## Challenges
 Biggest challenge I experienced in this project was integrating Typescript, Next, and React together. In this projected I wanted to write functions that were reusable and easy to factor but with TypeScript and the guidelines of React's Hook/State Rules, this became tedious pretty quickly and required guidance and constant brainstorming. Example is when the User would log in, we would need to use an async function to ensure that the data we grabbed from the user loaded first prior to the functions that would display their top categories. Initially we started with a LocalStorage method but then the issues of Tree Hydrations appeared and we would then have to brainstorm for better alternatives. These challenges help enforce my ability to rapidly research and understand modern frameworks more effectively. - Chantakrak Ath-Ly 
