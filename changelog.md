@@ -1,3 +1,6 @@
+ 0.4.2
+ - Tagged my part of the README.md 
+  
   0.4.1
 - Updated ReadMe.md
 
