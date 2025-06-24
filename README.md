@@ -3,11 +3,29 @@ This project was made by Nakra Ath-Ly, Nick Wu, Chantakrak Ath-Ly, and Sarey Che
 
 
 ## Project Detail
-In this project, we utilized Next.js, TailwindCSS, and Typescript to create the web application. We created a boilerplate webpage and then slowly replaced the components with the actual data extracted from the Spotify API using GET requests through Axios. The Spotify API has a variety of different scopes, but we narrowed it down to only use the ones that extract the user's profile infromation and their listening history.
+In this project, we utilized Next.js, TailwindCSS, and Typescript to create the web application. We created a boilerplate webpage and then slowly replaced the components with the actual data extracted from the Spotify API using GET requests through fetch and then parsing the data as a JSON file. The Spotify API has a variety of different scopes, but we narrowed it down to only use the ones that extract the user's profile infromation and their listening history.
 
+## Project Setup
+Clone the repository 
+
+Install the dependencies in the terminal using:
+```bash
+npm install
+```
+
+Create a file named '.env.local' in the root folder and include 
+
+```
+NEXT_PUBLIC_USER_ID=bbd6d5333456415ca8bad1bce919efad
+```
+
+To run the project, type in the terminal
+```bash
+npm run dev
+```
 
 ## Project Process
-We utilized JIRA to organize our project and evaluate our progress. Using the SCRUM methodology, we assigned one person a task and required a minimum of two other people to review for any changes necessary through a pull request. We would add every minute task as a JIRA task to proceed systematically and to ensure unanimous understanding before moving on to the next step.
+We utilized JIRA to organize our project and evaluate our progress. Using the Agile methodology, we compiled a list of tasks to collaborate on and required a minimum of two other people to review for any changes necessary through a pull request. We would add every minute task as a JIRA task to proceed systematically and to ensure unanimous understanding before moving on to the next step.
 
 ## Project Screenshots
 When user is opening the page, the page will redirect them to Spotify's OAuth page.
