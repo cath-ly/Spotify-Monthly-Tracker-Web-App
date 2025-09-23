@@ -1,9 +1,9 @@
 ## Introduction
-This project was made by Nakra Ath-Ly, Nick Wu, Chantakrak Ath-Ly, and Sarey Chek. This application focuses on using the Spotify API and the User's info to analyze their most listened to tracks and artists.
+This project was made by Nakra Ath-Ly, Nick Wu, Chantakrak Ath-Ly, and Sarey Chek. This application focuses on using the Spotify API and the User's info to analyze their most listened to tracks and artists of the month.
 
 
 ## Project Detail
-In this project, we utilized Next.js, TailwindCSS, and Typescript to create the web application. We created a boilerplate webpage and then slowly replaced the components with the actual data extracted from the Spotify API using GET requests through fetch and then parsing the data as a JSON file. The Spotify API has a variety of different scopes, but we narrowed it down to only use the ones that extract the user's profile infromation and their listening history.
+In this project, we utilized Next.js, TailwindCSS, and TypeScript to create the web application. We created a boilerplate webpage and then implemented components with data extracted from the Spotify API using REST methods to parse data as a JSON file. The Spotify API has a variety of different scopes, but we narrowed it down to only use the ones that extract the user's profile infromation and their listening history.
 
 ## Project Setup
 Clone the repository 
@@ -13,31 +13,31 @@ Install the dependencies in the terminal using:
 npm install
 ```
 
-Create a file named '.env.local' in the root folder and include 
+Create a file named '.env.local' in the root folder and include the Spotify Public API Key:
 
 ```
 NEXT_PUBLIC_USER_ID=bbd6d5333456415ca8bad1bce919efad
 ```
 
-To run the project, type in the terminal
+To run the project, type in the terminal:
 ```bash
 npm run dev
 ```
 
 ## Project Process
-We utilized JIRA to organize our project and evaluate our progress. Using the Agile methodology, we compiled a list of tasks to collaborate on and required a minimum of two other people to review for any changes necessary through a pull request. We would add every minute task as a JIRA task to proceed systematically and to ensure unanimous understanding before moving on to the next step.
+This project centers around JIRA and Agile Methodology to organize our project and evaluate our progress. We compiled a list of tasks to collaborate on and required a minimum of two other people to review for any changes necessary through a pull request. We would add every task as a JIRA task to proceed systematically and to ensure unanimous understanding before moving on to the next story.
 
 ## Project Screenshots
-When user is opening the page, the page will redirect them to Spotify's OAuth page.
+### When the user is opening the index page, the user will be redirected to Spotify's OAuth page.
 ![Spotify OAuth](/public/image/Spotify-OAuth.PNG)
 
-This is how our main page looks once users connect their account through Spotify's OAuth
+### This is how our main page looks once users connect their account through Spotify's OAuth
 ![Nick's Webpage](/public/image/webpage.png)
 ![Nakra's Webpage](/public/image/Spotify_Profile1.png)
 ![Chantakrak's Webpage](/public/image/Spotify-Snapshot-Chantakrak.PNG)
 
 ## Challenges
-Biggest challenge I experienced in this project was integrating Typescript, Next, and React together. In this projected I wanted to write functions that were reusable and easy to factor but with TypeScript and the guidelines of React's Hook/State Rules, this became tedious pretty quickly and required guidance and constant brainstorming. Example is when the User would log in, we would need to use an async function to ensure that the data we grabbed from the user loaded first prior to the functions that would display their top categories. Initially we started with a LocalStorage method but then the issues of Tree Hydrations appeared and we would then have to brainstorm for better alternatives. These challenges help enforce my ability to rapidly research and understand modern frameworks more effectively. - Chantakrak Ath-Ly 
+Biggest challenge I experienced in this project was integrating TypeScript, Next, and React together. In this projected I wanted to write functions that were reusable and easy to factor but with TypeScript and the guidelines of React's Hook/State Rules, this became tedious pretty quickly and required guidance and constant brainstorming. Example is when the User would log in, we would need to use an async function to ensure that the data we grabbed from the user loaded first prior to the functions that would display their top categories. Initially we started with a LocalStorage method but then the issues of Tree Hydrations appeared and we would then have to brainstorm for better alternatives. These challenges help enforce my ability to rapidly research and understand modern frameworks more effectively. - Chantakrak Ath-Ly 
 
 The most challenging part of the project was creating the initial connection between the web application and the API and navigating GET requests within the API. - Nick Wu
 
