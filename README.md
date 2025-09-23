@@ -46,6 +46,6 @@ Challenges for me was relearning to code and getting used to Typescript. Had to 
 ## What did I learn
 From this project, we learned a little more about the Software Development Life Cycle as we tried to mimic how a project would be done in a professional setting. We also learned more about APIs and how to incorporate them into web applications. With this project, we hope to expand on it by incorporating an extended listening history and analyzing listening habits throughout a year. We also look forward to implementing a song recommendation feature based off the user's listening trends. - Nick Wu
 
-As I mentioned in the Challenges section, I learned about the versatility of these modern frameworks. I was able to get a deeper understanding of the code through TypeScript, further my knowledge of API integration, and understand best practices for industry standard programming. - Chantakrak Ath-Ly
+As I mentioned in the Challenges section, I learned about the versatility of these modern frameworks. I was able to get a deeper understanding of the code through TypeScript, further my knowledge of API integration, and understand best practices for industry standard programming. I am hoping to adjust the sizing of the images and text to ensure it meets with industry standards for UI implementation. - Chantakrak Ath-Ly
 
 I learned alot of information that i had to retain. I learned typescript  and gaining some API knowledge. From this project I can see how music taste changes in a monthly basis or stays the same. -Nakra Ath-Ly
