@@ -1,10 +1,5 @@
 ## Introduction
-<<<<<<< HEAD
-This project was made by Nakra Ath-Ly, Nick Wu, Chantakrak Ath-Ly, and Sarey Chek. This application focuses on using the Spotify API and the User's info to analyze their most listened to tracks and artists. 
-=======
 This project was made by Nakra Ath-Ly, Nick Wu, Chantakrak Ath-Ly, and Sarey Chek. This application focuses on using the Spotify API and the User's info to analyze their most listened to tracks and artists of the month.
->>>>>>> refs/remotes/origin/MONTHWRAP-27-Update-Readme.md
-
 
 ## Project Detail
 In this project, we utilized Next.js, TailwindCSS, and TypeScript to create the web application. We created a boilerplate webpage and then implemented components with data extracted from the Spotify API using REST methods to parse data as a JSON file. The Spotify API has a variety of different scopes, but we narrowed it down to only use the ones that extract the user's profile infromation and their listening history.
@@ -46,6 +41,7 @@ Biggest challenge I experienced in this project was integrating TypeScript, Next
 The most challenging part of the project was creating the initial connection between the web application and the API and navigating GET requests within the API. - Nick Wu
 
 I relearned a lot of class content through this project. It was my first time using a developer kit as large as the Spotify API and attempting to store the data correctly in our API was exciting. I love listening to music and seeing my music tendencies. APIs can be really useful and allow us developers to create a fun collaborative project. We want to add more to the project to see how much music we listen to like add a component to see how many hours we listen to, that would be something to add further to implement. - Nakra Ath-Ly
+
 ## What did I learn
 From this project, we learned a little more about the Software Development Life Cycle as we tried to mimic how a project would be done in a professional setting. We also learned more about APIs and how to incorporate them into web applications. With this project, we hope to expand on it by incorporating an extended listening history and analyzing listening habits throughout a year. We also look forward to implementing a song recommendation feature based off the user's listening trends. - Nick Wu
 
