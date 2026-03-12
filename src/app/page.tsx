@@ -3,8 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { redirectToAuthCodeFlow } from "./utils/redirectToAuthCodeFlow";
 import { getAccessToken } from "./utils/getAccessToken";
-import { fetchProfile, fetchTopTracks, fetchTopArtists } from "./utils/fetchSpotifyInfo";
-import GenreTable from "./components/GenreTable/GenreTable";
+import {fetchProfileInfo } from "./utils/fetchSpotifyInfo";
 import UserTracks from "./components/UsersTracks/UsersTracks";
 import ArtistTable from "./components/ArtistTable/ArtistTable";
 import ProfilePic from "./components/ProfilePic/ProfilePic";
@@ -21,6 +20,7 @@ export default function Home() {
 
   useEffect(() => {
     const getSpotifyAuth = async (code: string | null) => {
+      console.log(code);
       if (!code) {
         redirectToAuthCodeFlow(process.env.NEXT_PUBLIC_USER_ID);
       } else {
@@ -29,9 +29,7 @@ export default function Home() {
             process.env.NEXT_PUBLIC_USER_ID,
             code
           );
-          const profile = await fetchProfile(accessToken);
-          const topTracks = await fetchTopTracks(accessToken);
-          const topArtists = await fetchTopArtists(accessToken)
+          const [profile, topTracks, topArtists] = await fetchProfileInfo(accessToken);
           setPicture(profile.images[0].url);
           setTracks(topTracks.items);
           setArtists(topArtists.items);

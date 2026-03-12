@@ -1,28 +1,17 @@
+import axios from "axios";
 import { profileURL, topTracksURL, topArtistsURL } from "./fetchURL";
 
-export async function fetchProfile(token: string): Promise<any> {
-  const result = await fetch(profileURL, {
-    method: "GET",
-    headers: { Authorization: `Bearer ${token}` },
-  });
+export async function fetchProfileInfo(token: string): Promise<any> {
+  const promises = [axios.get(profileURL, {headers: { Authorization: `Bearer ${token}` }}), 
+                    axios.get(topTracksURL, {headers: { Authorization: `Bearer ${token}` }}), 
+                    axios.get(topArtistsURL, {headers: { Authorization: `Bearer ${token}` }})];
+  const profilePromise = await Promise.allSettled(promises);
+  const profileInfo: any[] | Promise<any> = [];
+  profilePromise.forEach((result, index) => {
+    if (result.status === "fulfilled"){
+     profileInfo.push(result.value.data) 
+    }
+  })
 
-  return await result.json();
-}
-
-export async function fetchTopTracks(token: string): Promise<any> {
-  const topTracksResult = await fetch(topTracksURL, {
-    method: "GET",
-    headers: { Authorization: `Bearer ${token}` },
-  });
-
-  return topTracksResult.json();
-}
-
-export async function fetchTopArtists(token: string): Promise<any> {
-  const topArtistsResult = await fetch(topArtistsURL, {
-  method: "GET",
-  headers: { Authorization: `Bearer ${token}` },
-  });
-  
-  return topArtistsResult.json();
+  return profileInfo;
 }
